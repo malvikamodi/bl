@@ -84,7 +84,7 @@ class SafeBrowsingList(object):
             expected_checksum = b64decode(response['checksum']['sha256'])
             log.info('Verifying threat hash prefix list checksum')
             if self._verify_threat_list_checksum(response_threat_list, expected_checksum):
-                log.info('Local cache checksum matches the server: {}'.format(to_hex(expected_checksum)))
+                #log.info('Local cache checksum matches the server: {}'.format(to_hex(expected_checksum)))
                 self.storage.update_threat_list_client_state(response_threat_list, response['newClientState'])
                 self.storage.commit()
             else:
